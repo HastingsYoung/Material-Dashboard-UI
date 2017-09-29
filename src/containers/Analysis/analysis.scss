@@ -1,0 +1,25 @@
+@import '../../styles/_base.scss';
+.analysis {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  section {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .card {
+    height: 200px;
+    width: 350px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: $card-shadow;
+  }
+  .card.double {
+    height: 400px;
+    width: 740px;
+  }
+}

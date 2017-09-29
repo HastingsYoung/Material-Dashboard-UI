@@ -1,0 +1,51 @@
+@import '../../styles/_base.scss';
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background: $btn-blue;
+  padding: 10px;
+  border-radius: 100%;
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-box-shadow: $btn-shadow;
+  -moz-box-shadow: $btn-shadow;
+  box-shadow: $btn-shadow;
+  overflow: hidden;
+  user-select: none;
+  .ripple {
+    display: block;
+    position: absolute;
+    background: transparent;
+    border-radius: 100%;
+    transform: scale(0);
+    content: '';
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+  &.btn-animate {
+    .ripple {
+      background: lighten(#ffffff, 18%);
+      animation: rippleAnimation 0.65s linear;
+    }
+  }
+}
+
+@keyframes rippleAnimation {
+  /*scale the element to 250% to safely cover the entire link and fade it out*/
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}

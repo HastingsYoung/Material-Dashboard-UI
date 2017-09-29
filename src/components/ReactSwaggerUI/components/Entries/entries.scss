@@ -1,0 +1,58 @@
+@import '../../styles/base';
+
+.entries {
+  background: #ffffff;
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.entry-label {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  color: #ffffff;
+  font-family: $main-font;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 25px;
+  width: 80px;
+  height: 25px;
+}
+
+.entry-label.get {
+  background: $color-get;
+}
+
+.entry-label.post {
+  background: $color-post;
+}
+
+.entry-label.put {
+  background: $color-put;
+}
+
+.entry-label.delete {
+  background: $color-delete;
+}
+
+.entry-label.disabled {
+  color: #ebebeb !important;
+}
+
+.entry-api {
+  span {
+    margin: 0 15px;
+  }
+  .api {
+    font-weight: 600;
+  }
+  .desc {
+    font-weight: 300;
+  }
+}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,OAAQ;EACN,UAAU,EAAE,OAAO;;AAErB,MAAO;EACL,WAAW,ECCD,0FAA0F;EDApG,UAAI;IACF,WAAW,EAAE,IAAI",
+"sources": ["models.scss","../../styles/_base.scss"],
+"names": [],
+"file": "models.css"
+}

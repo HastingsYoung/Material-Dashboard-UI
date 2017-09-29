@@ -1,0 +1,45 @@
+.entries {
+  background: #ffffff; }
+
+.entry {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+
+.entry-label {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  color: #ffffff;
+  font-family: Helvetica, "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 25px;
+  width: 80px;
+  height: 25px; }
+
+.entry-label.get {
+  background: #61AFFE; }
+
+.entry-label.post {
+  background: #49CC90; }
+
+.entry-label.put {
+  background: #FCA130; }
+
+.entry-label.delete {
+  background: #F93E3E; }
+
+.entry-label.disabled {
+  color: #ebebeb !important; }
+
+.entry-api span {
+  margin: 0 15px; }
+.entry-api .api {
+  font-weight: 600; }
+.entry-api .desc {
+  font-weight: 300; }
+
+/*# sourceMappingURL=entries.css.map */

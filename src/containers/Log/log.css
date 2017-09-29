@@ -1,0 +1,26 @@
+.log {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  width: 100%; }
+
+.log-record {
+  font-size: 14px;
+  font-family: 'Nunito', "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.log-record.error {
+  color: #F93E3E; }
+
+.log-record.warn {
+  color: #FCA130; }
+
+.log-record.progress {
+  color: #49cc90; }
+
+.log-record.normal {
+  color: #1f1f1f; }
+
+.log-record.list {
+  color: #6f6f6f; }
+
+/*# sourceMappingURL=log.css.map */

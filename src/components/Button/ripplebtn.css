@@ -1,0 +1,42 @@
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background: #0d47a1;
+  padding: 10px;
+  border-radius: 100%;
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.19), 0px 6px 10px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.19), 0px 6px 10px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.19), 0px 6px 10px rgba(0, 0, 0, 0.23);
+  overflow: hidden;
+  user-select: none; }
+  .button .ripple {
+    display: block;
+    position: absolute;
+    background: transparent;
+    border-radius: 100%;
+    transform: scale(0);
+    content: '';
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%; }
+  .button:focus {
+    outline: 0; }
+  .button.btn-animate .ripple {
+    background: white;
+    animation: rippleAnimation 0.65s linear; }
+
+@keyframes rippleAnimation {
+  /*scale the element to 250% to safely cover the entire link and fade it out*/
+  100% {
+    opacity: 0;
+    transform: scale(2.5); } }
+
+/*# sourceMappingURL=ripplebtn.css.map */

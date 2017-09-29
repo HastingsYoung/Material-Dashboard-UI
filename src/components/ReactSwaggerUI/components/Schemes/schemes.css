@@ -1,0 +1,58 @@
+.schemes {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  font-family: Helvetica, "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  padding: 1%; }
+
+.schemes-left, .schemes-right {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column; }
+
+.schemes-left span {
+  font-size: 12px;
+  font-weight: 800;
+  color: #1f1f1f;
+  padding-left: 24px; }
+
+.schemes-right button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 5%;
+  padding: 5%;
+  border-radius: 5px;
+  border: none;
+  width: 10rem;
+  height: 2.5rem;
+  cursor: pointer;
+  background: #49cc90;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  -ms-transition: all 300ms;
+  -o-transition: all 300ms;
+  transition: all 300ms; }
+  .schemes-right button:hover {
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+    background: #31b176; }
+  .schemes-right button label, .schemes-right button img {
+    pointer-events: none; }
+  .schemes-right button label {
+    color: #ffffff;
+    font-size: 16px; }
+  .schemes-right button img {
+    height: 100%; }
+
+/*# sourceMappingURL=schemes.css.map */

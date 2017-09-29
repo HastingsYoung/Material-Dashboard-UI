@@ -1,0 +1,62 @@
+@import '../../styles/_base.scss';
+
+.schemes {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  font-family: Helvetica, "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Arial;
+  box-shadow: $section-shadow;
+  background: #ffffff;
+  padding: 1%;
+}
+
+.schemes-left, .schemes-right {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.schemes-left {
+  span {
+    font-size: 12px;
+    font-weight: 800;
+    color: #1f1f1f;
+    padding-left: 24px;
+  }
+}
+
+.schemes-right {
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 5%;
+    padding: 5%;
+    border-radius: 5px;
+    border: none;
+    width: 10rem;
+    height: 2.5rem;
+    cursor: pointer;
+    background: $color-success;
+    box-shadow: $button-shadow;
+    @include trans();
+    &:hover {
+      @include trans();
+      background: darken($color-success, 10);
+    }
+    label, img {
+      pointer-events: none;
+    }
+    label {
+      color: #ffffff;
+      font-size: 16px;
+    }
+    img {
+      height: 100%;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.analysis {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%; }
+  .analysis section {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; }
+  .analysis .card {
+    height: 200px;
+    width: 350px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15); }
+  .analysis .card.double {
+    height: 400px;
+    width: 740px; }
+
+/*# sourceMappingURL=analysis.css.map */

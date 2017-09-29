@@ -1,0 +1,33 @@
+@import '../../styles/_base.scss';
+
+.log {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  width: 100%;
+}
+
+.log-record {
+  font-size: 14px;
+  font-family: 'Nunito', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.log-record.error {
+  color: $color-log-error;
+}
+
+.log-record.warn {
+  color: $color-log-warn;
+}
+
+.log-record.progress {
+  color: $color-log-progress;
+}
+
+.log-record.normal {
+  color: $color-log-normal;
+}
+
+.log-record.list {
+  color: $color-log-list;
+}
