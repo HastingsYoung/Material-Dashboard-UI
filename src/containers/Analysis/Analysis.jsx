@@ -23,7 +23,7 @@ export default class Analysis extends Component {
                 trigger: 'axis'
             },
             legend: {
-                data:['Latest Ask', 'Prepaid Queue']
+                data:['Server Load', 'Worker Pool']
             },
             "color": [
                 "#2196F3",
@@ -84,7 +84,7 @@ export default class Analysis extends Component {
                 {
                     type: 'value',
                     scale: true,
-                    name: 'Price',
+                    name: 'Amount',
                     max: 20,
                     min: 0,
                     boundaryGap: [0.2, 0.2]
@@ -92,7 +92,7 @@ export default class Analysis extends Component {
                 {
                     type: 'value',
                     scale: true,
-                    name: 'Amount',
+                    name: 'Tasks / Sec',
                     max: 1200,
                     min: 0,
                     boundaryGap: [0.2, 0.2]
