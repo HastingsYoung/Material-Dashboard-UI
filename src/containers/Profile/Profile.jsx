@@ -12,10 +12,26 @@ export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected: [1],
-            data: [[1, "Attribute 01", "Value"], [2, "Attribute 02", "Value"], [3, "Attribute 03", "Value"], [4, "Attribute 04", "Value"],
-                [5, "Attribute 05", "Value"], [6, "Attribute 06", "Value"], [7, "Attribute 07", "Value"], [8, "Attribute 08", "Value"]]
+            selected: [0],
+            headers:[],
+            data: [[]]
         };
+    }
+
+    componentDidMount() {
+        let self = this;
+
+        fetch("http://localhost:8080/dashboard/profile",{
+            method: "GET",
+            mode: 'cors'
+        }).then((res)=>{
+            return res.json();
+        }).then((json)=>{
+            self.setState({
+                headers:json.headers,
+                data:json.data
+            });
+        });
     }
 
     isSelected = (index) => {
@@ -30,9 +46,7 @@ export default class Profile extends Component {
 
     getRows() {
         return this.state.data.map((d, i)=><TableRow key={i} selected={this.isSelected(i)}>
-            <TableRowColumn>{d[0]}</TableRowColumn>
-            <TableRowColumn>{d[1]}</TableRowColumn>
-            <TableRowColumn>{d[2]}</TableRowColumn>
+            {d.map((dc,j)=><TableRowColumn key={j}>{dc}</TableRowColumn>)}
         </TableRow>);
     }
 
@@ -41,9 +55,9 @@ export default class Profile extends Component {
             <Table onRowSelection={this.handleRowSelection}>
                 <TableHeader>
                     <TableRow>
-                        <TableHeaderColumn>ID</TableHeaderColumn>
-                        <TableHeaderColumn>Name</TableHeaderColumn>
-                        <TableHeaderColumn>Status</TableHeaderColumn>
+                        <TableHeaderColumn>Attribute</TableHeaderColumn>
+                        <TableHeaderColumn>Type</TableHeaderColumn>
+                        <TableHeaderColumn>Value</TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
                 <TableBody>

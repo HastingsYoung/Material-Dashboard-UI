@@ -4,93 +4,43 @@ import ReactSwaggerUI from 'react-swagger';
 import './api.css';
 import 'react-swagger/dist/index.css';
 
-const models = [{
-    name: "Model 01",
-    attributes: {
-        "id": {
-            "type": "integer",
-            "default": 0
-        },
-        "quantity": {
-            "type": "integer",
-            "default": 0
-        },
-        "status": {
-            "type": "string",
-            "default": ""
-        },
-        "complete": {
-            "type": "boolean",
-            "default": false
-        }
-    }
-}, {
-    name: "Model 02",
-    attributes: {
-        "id": {
-            "type": "integer",
-            "default": 0
-        },
-        "quantity": {
-            "type": "integer",
-            "default": 0
-        },
-        "status": {
-            "type": "string",
-            "default": ""
-        },
-        "complete": {
-            "type": "boolean",
-            "default": false
-        }
-    }
-}];
-
-const entries = [{
-    type: "get",
-    api: "/model",
-    desc: "The description of model api"
-}, {
-    type: "post",
-    api: "/model",
-    desc: "The description of model api"
-}, {
-    type: "put",
-    api: "/model",
-    desc: "The description of model api"
-}, {
-    type: "delete",
-    api: "/model",
-    desc: "The description of model api"
-},{
-    type: 'get',
-    api: '/model',
-    desc: 'The description of model api',
-    deprecated: true,
-}];
-
-const base = {
-    title: "Swagger Example API",
-    subTitle: "[ Base URL: example.swagger.io/v2 ]"
-}
-
-const entriesGroup = [{
-    groupName: "Model APIs",
-    groupDesc: "The description of Model APIs",
-    entries
-}];
-const modelsGroup = [{
-    groupName: "Models",
-    groupDesc: "The description of Models",
-    models
-}];
-
 export default class API extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: {
+                entries: [],
+                models: [],
+                base: {
+                    title: "Swagger Example API",
+                    subTitle: "[ Base URL: example.swagger.io/v2 ]"
+                }
+            }
+        };
+    }
+
+    componentDidMount() {
+        let self = this;
+
+        fetch("http://localhost:8080/dashboard/routes", {
+            method: "GET",
+            mode: 'cors'
+        }).then((res)=> {
+            return res.json();
+        }).then((json)=> {
+            self.setState({
+                data: json
+            });
+        });
+    }
+
     render() {
         return (<div className="apis">
-            <ReactSwaggerUI entries={entriesGroup} models={modelsGroup} base={base}>
+            <ReactSwaggerUI {...this.state.data}>
                 This is a sample server Swagger UI. You can find out more about Swagger at http://swagger.io or on
-                irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.
+                irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the
+                authorization filters.
             </ReactSwaggerUI>
         </div>);
     }
