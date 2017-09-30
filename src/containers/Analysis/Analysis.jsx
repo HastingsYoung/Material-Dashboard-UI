@@ -100,7 +100,7 @@ export default class Analysis extends Component {
             ],
             series: [
                 {
-                    name:'Prepaid Queue',
+                    name:'Worker Pool',
                     type:'bar',
                     xAxisIndex: 1,
                     yAxisIndex: 1,
@@ -114,7 +114,7 @@ export default class Analysis extends Component {
                     })()
                 },
                 {
-                    name:'Latest Ask',
+                    name:'Server Load',
                     type:'line',
                     data:(function (){
                         var res = [];
