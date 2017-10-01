@@ -38,9 +38,7 @@ export default class API extends Component {
     render() {
         return (<div className="apis">
             <ReactSwaggerUI {...this.state.data}>
-                This is a sample server Swagger UI. You can find out more about Swagger at http://swagger.io or on
-                irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the
-                authorization filters.
+                This is a list of GoCollaborate sample API, please find out more at https://github.com/HastingsYoung/GoCollaborate.
             </ReactSwaggerUI>
         </div>);
     }

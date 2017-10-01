@@ -2,15 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './log.css';
 
-const text = `2017/09/28 08:58:12  [NORMAL]:   Case Identifier:
-2017/09/28 08:58:12  [LIST]:     [-] [GoCollaborateStandardCase]
-2017/09/28 08:58:12  [NORMAL]:   Local Address:
-2017/09/28 08:58:12  [LIST]:     [-] [131.170.171.98]
-2017/09/28 08:58:12  [LIST]:     [-] [localhost:57851 Alive]
-2017/09/28 08:58:12  [LIST]:     [-] [localhost:57851 Alive]
-2017/09/28 08:58:12  [NORMAL]:   Job Linked:
-2017/09/28 08:58:12  [LIST]:     [-] [/core/ExampleJobHandler]`;
-
 const reg = {
     NORMAL: /\[NORMAL\]/,
     WARN: /\[WARN\]/,
@@ -20,9 +11,30 @@ const reg = {
 };
 
 export default class Log extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            text : `Loading...`
+        }
+    }
+
+    componentDidMount() {
+        let self = this;
+
+        fetch("http://localhost:8080/dashboard/logs", {
+            method: "GET",
+            mode: 'cors'
+        }).then((res)=> {
+            return res.text();
+        }).then((text)=> {
+            self.setState({text});
+        });
+    }
+
     render() {
 
-        const records = text.split(/\n/);
+        const records = this.state.text.split(/\n/);
 
         return (<div className="log">
             {records.map((d, i)=> {

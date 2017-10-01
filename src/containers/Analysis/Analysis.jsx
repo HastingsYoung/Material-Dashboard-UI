@@ -23,7 +23,7 @@ export default class Analysis extends Component {
                 trigger: 'axis'
             },
             legend: {
-                data:['Server Load', 'Worker Pool']
+                data:['Worker Pool','Server Load']
             },
             "color": [
                 "#2196F3",
@@ -45,7 +45,8 @@ export default class Analysis extends Component {
                     dataView: {readOnly: false},
                     restore: {},
                     saveAsImage: {}
-                }
+                },
+                showTitle: false
             },
             dataZoom: {
                 show: false,
@@ -85,7 +86,7 @@ export default class Analysis extends Component {
                     type: 'value',
                     scale: true,
                     name: 'Amount',
-                    max: 20,
+                    max: 30,
                     min: 0,
                     boundaryGap: [0.2, 0.2]
                 },
@@ -100,7 +101,7 @@ export default class Analysis extends Component {
             ],
             series: [
                 {
-                    name:'Worker Pool',
+                    name:'Server Load',
                     type:'bar',
                     xAxisIndex: 1,
                     yAxisIndex: 1,
@@ -114,13 +115,13 @@ export default class Analysis extends Component {
                     })()
                 },
                 {
-                    name:'Server Load',
+                    name:'Worker Pool',
                     type:'line',
                     data:(function (){
                         var res = [];
                         var len = 0;
                         while (len < 10) {
-                            res.push((Math.random()*10 + 5).toFixed(1) - 0);
+                            res.push((Math.floor(Math.random()*20) + 5).toFixed(1) - 0);
                             len++;
                         }
                         return res;
