@@ -23,4 +23,11 @@
 .log-record.list {
   color: #6f6f6f; }
 
+.log-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px 0; }
+
 /*# sourceMappingURL=log.css.map */

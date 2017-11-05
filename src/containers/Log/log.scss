@@ -31,3 +31,11 @@
 .log-record.list {
   color: $color-log-list;
 }
+
+.log-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px 0;
+}
