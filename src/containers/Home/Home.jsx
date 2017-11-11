@@ -63,7 +63,7 @@ export default class Home extends Component {
             </MotionMenu>
 
             <div
-                style={{position:"absolute",width:"70%", height: "100%", right: "0", top: "0", overflowX:"hidden",overflowY:"scroll"}}>
+                style={{position:"absolute",width:"80%", height: "100%", right: "0", top: "0", overflowX:"hidden",overflowY:"scroll"}}>
                 <div className="container">
                     {this.getContents()}
                 </div>

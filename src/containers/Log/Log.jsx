@@ -60,7 +60,7 @@ export default class Log extends Component {
                     return <LogRecord key={i} text={d}/>;
                 })}
             </div>
-            
+
             <Pagination curr={this.state.page} max={this.state.max} first={this.toPage.bind(this, 0)}
                         last={this.toPage.bind(this, this.state.max)}
                         next={this.toPage.bind(this, (this.state.page + 1))}

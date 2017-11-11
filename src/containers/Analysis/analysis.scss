@@ -12,14 +12,54 @@
     justify-content: space-between;
   }
   .card {
-    height: 200px;
-    width: 350px;
+    height: 240px;
+    width: 400px;
     margin: 10px;
     padding: 10px;
     box-shadow: $card-shadow;
   }
   .card.double {
-    height: 400px;
-    width: 740px;
+    height: 450px;
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .analysis {
+    .card {
+      height: 160px;
+      width: 300px;
+    }
+    .card.double {
+      height: 300px;
+      width: 600px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .analysis {
+    .card {
+      height: 120px;
+      width: 240px;
+    }
+    .card.double {
+      height: 240px;
+      width: 480px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .analysis {
+    .card {
+      height: 120px;
+      width: 160px;
+    }
+
+    .card.double {
+      height: 240px;
+      width: 240px;
+    }
   }
 }

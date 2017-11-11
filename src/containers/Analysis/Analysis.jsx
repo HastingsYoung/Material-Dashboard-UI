@@ -21,7 +21,7 @@ export default class Analysis extends Component {
             tasks: {
                 array: [],
                 policy: ""
-            }
+            },
         }
     }
 
@@ -31,7 +31,7 @@ export default class Analysis extends Component {
         fetch("http://localhost:8080/dashboard/stats", {
             method: "GET",
             mode: 'cors'
-        }).then((res)=>res.json()).then((json)=> {
+        }).then((res) => res.json()).then((json) => {
             self.setState(json);
             self.renderChart01();
             self.renderChart02();
@@ -69,11 +69,10 @@ export default class Analysis extends Component {
             toolbox: {
                 show: true,
                 feature: {
-                    dataView: {readOnly: false},
-                    restore: {},
-                    saveAsImage: {}
+                    dataView: {readOnly: false, title: "Data View", lang: ["Data View","Close","Refresh"]},
+                    restore: {title: "Restore"},
+                    saveAsImage: {title:"Save", lang: ["Right Click to Save"]}
                 },
-                showTitle: false
             },
             dataZoom: [
                 {
@@ -94,7 +93,7 @@ export default class Analysis extends Component {
                     type: 'category',
                     name: 'Time',
                     boundaryGap: true,
-                    data: this.state.hits.array.map((t)=> {
+                    data: this.state.hits.array.map((t) => {
                         let ts = t.midts * 1000
                         return new Date(ts).toLocaleTimeString();
                     })
@@ -103,7 +102,7 @@ export default class Analysis extends Component {
                     type: 'category',
                     name: 'Time',
                     boundaryGap: true,
-                    data: this.state.hits.array.map((t)=> {
+                    data: this.state.hits.array.map((t) => {
                         let ts = t.midts * 1000
                         return new Date(ts).toLocaleTimeString();
                     })
@@ -127,14 +126,14 @@ export default class Analysis extends Component {
                 {
                     name: 'Hits',
                     type: 'line',
-                    data: this.state.hits.array.map((d)=>d.val)
+                    data: this.state.hits.array.map((d) => d.val)
                 },
                 {
                     name: 'Tasks',
                     type: 'bar',
                     xAxisIndex: 1,
                     yAxisIndex: 1,
-                    data: this.state.tasks.array.map((d)=>d.val)
+                    data: this.state.tasks.array.map((d) => d.val)
                 }
             ]
         });
@@ -145,15 +144,12 @@ export default class Analysis extends Component {
         let chart = echarts.init(parent);
 
         let obj = this.state;
-        let routes = Object.keys(this.state);
+        let routes = Object.keys(obj);
+        const len = routes.length;
         let hours = ['12a', '1a', '2a', '3a', '4a', '5a', '6a',
             '7a', '8a', '9a', '10a', '11a',
             '12p', '1p', '2p', '3p', '4p', '5p',
             '6p', '7p', '8p', '9p', '10p', '11p'];
-
-        let data = routes.map((k)=> {
-            return [0].concat(obj[k].array.map((a)=>a.val));
-        });
 
         let option = {
             tooltip: {
@@ -165,10 +161,10 @@ export default class Analysis extends Component {
             color: ["#2196F3"]
         };
 
-        echarts.util.each(routes, function (route, idx) {
+        routes.forEach((route, idx) => {
             option.title.push({
                 textBaseline: 'middle',
-                top: (idx + 0.5) * 100 / 7 + '%',
+                top: (idx + 0.5) * 300 / len + 10 + 'px',
                 text: route,
                 textStyle: {
                     fontWeight: 300,
@@ -176,25 +172,39 @@ export default class Analysis extends Component {
                 }
             });
             option.singleAxis.push({
-                left: 150,
+                left: '15%',
                 type: 'category',
                 boundaryGap: false,
                 data: hours,
-                top: (idx * 100 / 7 + 5) + '%',
-                height: (100 / 7 - 10) + '%',
+                top: (idx * 300 / len + 10) + 'px',
+                height: (300 / len) + 'px',
                 axisLabel: {
-                    interval: 2
+                    interval: 1
                 }
             });
             option.series.push({
                 singleAxisIndex: idx,
                 coordinateSystem: 'singleAxis',
                 type: 'scatter',
-                data: data[idx],
+                data: [],
                 symbolSize: function (dataItem) {
-                    return dataItem * 4;
+                    return dataItem;
                 }
             });
+        });
+
+        routes.forEach((r, i) => {
+            let r_obj = obj[r];
+            let hrs = [0, 0, 0, 0, 0, 0,
+                        0, 0, 0, 0, 0, 0,
+                        0, 0, 0, 0, 0, 0,
+                        0, 0, 0, 0, 0, 0];
+            r_obj.array.forEach((d, i) => {
+                const date = new Date(d.midts * 1000);
+                // adds up hours hits
+                hrs[date.getHours()] += d.val;
+            });
+            option.series[i].data.push(...hrs);
         });
 
         chart.setOption(option);
