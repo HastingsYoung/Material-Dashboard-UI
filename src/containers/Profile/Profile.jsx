@@ -46,7 +46,7 @@ export default class Profile extends Component {
 
     getRows() {
         return this.state.data.map((d, i)=><TableRow key={i} selected={this.isSelected(i)}>
-            {d.map((dc,j)=><TableRowColumn key={j}>{dc}</TableRowColumn>)}
+            {d.map((dc,j)=><TableRowColumn key={j}>{dc.toString()}</TableRowColumn>)}
         </TableRow>);
     }
 

@@ -3,6 +3,12 @@
   font-family: 'Alex Brush', cursive, "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial; }
   .logo a {
     color: #ffffff;
-    text-decoration: none; }
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; }
+  .logo img {
+    height: 64px;
+    width: 64px; }
 
 /*# sourceMappingURL=logo.css.map */
